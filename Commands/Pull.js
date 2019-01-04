@@ -12,7 +12,9 @@ module.exports = class PullCommand extends Command {
     const lines = promiseFile.split('\n')
 
     // Get cache line
-    const cacheValue = fs.readFileSync(args[0] + '.promcache', 'utf8').trim()
+    const cacheValue = fs.existsSync(args[0] + '.promcache')
+      ? fs.readFileSync(args[0] + '.promcache', 'utf8').trim()
+      : ''
 
     // Pull data from promise
     let appendLines = ''
