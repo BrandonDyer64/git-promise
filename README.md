@@ -1,4 +1,5 @@
 # git-promise
+
 Add commands to run as branches merge down stream.
 
 ### `promise new <promise> <extension>`
@@ -11,7 +12,7 @@ promise new tables sql
 
 ```bash
 mysql "ALTER TABLE table ADD some_column int"
-promise add tables ALTER TABLE table ADD some_column int
+promise add tables ALTER TABLE table ADD some_column int; # Note the semicolon
 ```
 
 ### `promise pull <promise>`
@@ -38,7 +39,7 @@ promise new tables sql
 
 ```bash
 # Add a line to our promise
-promise add tables ALTER TABLE table ADD some_column int
+promise add tables ALTER TABLE table ADD some_column INT;
 # Push changes
 git add -A && git commit && git push
 ```
@@ -47,7 +48,7 @@ git add -A && git commit && git push
 
 ```bash
 # Add a line to our promise
-promise add tables ALTER TABLE table ADD some_column_other_column VARCHAR(32)
+promise add tables ALTER TABLE table ADD some_column_other_column VARCHAR(32);
 # Push changes
 git add -A && git commit && git push
 ```
@@ -59,8 +60,8 @@ git add -A && git commit && git push
 git pull
 promise pull tables
 cat tables.sql
-  # ALTER TABLE table ADD some_column int
-  # ALTER TABLE table ADD some_column_other_column VARCHAR(32)
+  # ALTER TABLE table ADD some_column INT;
+  # ALTER TABLE table ADD some_column_other_column VARCHAR(32);
 
 # Apply changes
 mysql "source tables.sql"

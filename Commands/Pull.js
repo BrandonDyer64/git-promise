@@ -18,7 +18,7 @@ module.exports = class PullCommand extends Command {
 
     // Pull data from promise
     let appendLines = ''
-    for (let i = lines.length - 1; i > 1; i--) {
+    for (let i = lines.length - 1; i >= 1; i--) {
       const line = lines[i]
       // Skip merge conflicts
       if (line[0] == '<' || line[0] == '>' || line[0] == '=') continue
